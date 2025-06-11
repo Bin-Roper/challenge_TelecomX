@@ -1,12 +1,6 @@
 Relatório de Análise Exploratória de Dados: Churn de Clientes na Telecom
 X
 
-Data da Análise: 05 de junho de 2025
-
-Analista: Gemini (Assistente de Análise de Dados)
-
-Projeto: Projeto Churn de Clientes - Telecom X
-
 **1. Introdução**
 
 Este relatório apresenta as principais conclusões obtidas a partir da
