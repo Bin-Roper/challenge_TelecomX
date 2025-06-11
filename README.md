@@ -1,119 +1,157 @@
-# 📊 Projeto Churn de Clientes – Telecom X
+Relatório de Análise Exploratória de Dados: Churn de Clientes na Telecom
+X
 
-Bem-vindo ao projeto de análise de evasão de clientes (Churn) da empresa **Telecom X**. Este repositório contém a análise exploratória realizada sobre os dados de clientes da empresa com o objetivo de entender os principais fatores que contribuem para o cancelamento dos serviços.
+Data da Análise: 05 de junho de 2025
 
----
+Analista: Gemini (Assistente de Análise de Dados)
 
-## 📌 Objetivo
+Projeto: Projeto Churn de Clientes - Telecom X
 
-A **Telecom X** tem enfrentado um alto índice de cancelamento de clientes. Este projeto tem como objetivo analisar os dados fornecidos pela empresa, tratar as inconsistências e aplicar técnicas de **Análise Exploratória de Dados (EDA)** para extrair insights valiosos sobre o comportamento dos clientes que evadem. 
+**1. Introdução**
 
----
+Este relatório apresenta as principais conclusões obtidas a partir da
+Análise Exploratória de Dados (AED) realizada sobre o conjunto de dados
+de clientes da Telecom X. O objetivo principal foi identificar os
+fatores que mais influenciam a decisão dos clientes em cancelar seus
+serviços (churn), fornecendo insights valiosos para a empresa direcionar
+suas estratégias de retenção.
 
-## 🛠️ Tecnologias Utilizadas
+**2. Visão Geral do Churn**
 
-- Python 3.10+
-- Pandas
-- NumPy
-- Matplotlib & Seaborn
-- Jupyter Notebook
+A análise inicial revelou que a Telecom X enfrenta uma taxa de churn
+considerável. Aproximadamente 26,58% dos clientes na base de dados
+analisada cancelaram seus serviços. Este é um indicador chave que
+destaca a urgência em implementar medidas de retenção.
 
----
+**3. Principais Fatores Associados ao Churn**
 
-## 📂 Estrutura do Repositório
+A análise detalhada das características dos clientes e dos serviços
+contratados permitiu identificar os seguintes fatores com maior impacto
+no churn:
 
-```bash
-├── Challenge_ETL_telecomX.ipynb              # Notebook com o pipeline de ETL e análise exploratória
-├── dataset/telecomx_data_gold.csv            # Pasta com os dados tratados 
-├── requirements.txt                          # Bibliotecas necessárias para rodar o projeto
-└── README.md                                 # Este arquivo
-```
+- Tipo de Contrato: Este é um dos fatores mais determinantes.
 
----
+Clientes com contrato Mensal (Month-to-month) apresentam uma taxa de
+churn significativamente mais alta em comparação com aqueles com
+contratos de 1 ou 2 anos. Isso sugere que clientes com contratos mais
+curtos possuem menor barreira para o cancelamento.
 
-## 🔍 Etapas Realizadas
+- Tempo de Contrato (Tenure): A longevidade do cliente na empresa é
+  crucial.
 
-### 1. **Importação e Tratamento dos Dados**
-- Extração de dados de uma API em formato JSON.
-- Normalização das colunas e correção de tipos de dados.
-- Preenchimento e tratamento de valores nulos.
-- Criação de novas features, como `Daily_Charges`.
+Clientes com baixo tempo de contrato (novos clientes) são muito mais
+propensos a cancelar. A taxa de churn tende a diminuir consideravelmente
+à medida que o tenure aumenta, indicando que a fidelização ocorre ao
+longo do tempo.
 
-### 2. **Análise Exploratória de Dados (EDA)**
-- Análise da variável alvo `Churn`, que representa se o cliente evadiu ou não.
-- Geração de gráficos para entender o comportamento dos clientes por:
-  - Tipo de contrato
-  - Tempo de permanência (`tenure`)
-  - Serviços contratados
-  - Tipo de pagamento
-  - Fatura diária
+- Cobranças Mensais (MonthlyCharges): O valor pago mensalmente
+  influencia a decisão de churn.
 
-### 3. **Análise de Correlação**
-- Verificação da relação entre variáveis e a variável alvo.
-- Criação de mapa de calor e gráficos de dispersão.
+Observou-se uma tendência de maior churn entre clientes com cobranças
+mensais mais elevadas. Isso pode indicar uma sensibilidade ao preço ou
+que os pacotes mais caros podem não estar entregando o valor percebido
+pelos clientes.
 
----
+- Serviços Adicionais de Suporte e Segurança: A ausência de certos
+  serviços adicionais está fortemente correlacionada ao churn.
 
-## 📈 Principais Insights
+Clientes que NÃO possuem OnlineSecurity (Segurança Online) e TechSupport
+(Suporte Técnico) apresentam taxas de cancelamento notavelmente mais
+altas. Estes serviços parecem ser importantes para a satisfação e
+segurança do cliente, impactando positivamente a retenção.
 
-- Clientes com contratos mensais têm maior chance de evadir.
-- Menor tempo de permanência está fortemente relacionado ao churn.
-- A ausência de serviços como suporte técnico, backup e segurança online está associada ao cancelamento.
-- Clientes com faturas diárias mais altas também demonstram maior churn.
-- Cobrança eletrônica (Paperless Billing) também está relacionada a maior evasão.
+- Método de Pagamento: A forma como o cliente paga também se mostrou
+  relevante.
 
----
+O método de pagamento Electronic check (Cheque Eletrônico) está
+associado a uma taxa de churn significativamente maior em comparação com
+outros métodos como cartão de crédito (automático) ou débito em conta.
+Isso pode estar relacionado a um processo de pagamento menos
+conveniente, mais propenso a falhas ou a um perfil de cliente menos
+comprometido com a continuidade do serviço.
 
-## ✅ Conclusões e Recomendações
+- Clientes Idosos (SeniorCitizen):
 
-- **Incentivar contratos de longo prazo** com benefícios adicionais.
-- **Oferecer pacotes combinados** de serviços essenciais com desconto.
-- **Foco em retenção nos primeiros meses de uso**, pois o churn ocorre majoritariamente no início do ciclo.
-- **Criar campanhas de reengajamento** para perfis com alto risco de churn.
+Clientes identificados como SeniorCitizen (Idosos) demonstraram uma taxa
+de churn superior à dos clientes não idosos. Este grupo pode ter
+necessidades específicas ou maior sensibilidade a fatores como preço e
+complexidade dos serviços.
 
----
+- Serviços de Internet e Streaming:
 
-## 💡 Próximos Passos
+O tipo de InternetService (DSL, Fibra Óptica) também mostrou variações
+na taxa de churn, com clientes de Fibra Óptica, apesar de geralmente
+terem MonthlyCharges mais altas, apresentando taxas de churn que
+precisam ser analisadas em conjunto com outros fatores.
 
-- Aplicar **modelos preditivos** após balanceamento da variável `Churn`.
-- Explorar técnicas como **SMOTE** e validação cruzada.
-- Construir dashboards interativos para acompanhamento contínuo de churn.
+A adesão a serviços como StreamingTV e StreamingMovies também
+influencia, mas de forma menos direta que os fatores acima. Clientes sem
+esses serviços podem ter um engajamento menor com o ecossistema da
+empresa.
 
----
+**4. Correlações Observadas**
 
-## 🚀 Como Executar
+A análise de correlação entre as variáveis numéricas reforçou alguns dos
+achados:
 
-1. Clone o repositório:
-```bash
-git clone https://github.com/albvieiraa/churn-de-clientes-telecom-x.git
-```
+- tenure vs. Churn_numeric: Correlação negativa, indicando que quanto
+  maior o tempo de contrato, menor a chance de churn.
 
-2. Crie um ambiente virtual:
-```bash
-python -m venv venv
-source venv/bin/activate  # Linux/macOS
-venv\Scripts\activate   # Windows
-```
+- MonthlyCharges vs. Churn_numeric: Correlação positiva, indicando que
+  quanto maior a cobrança mensal, maior a chance de churn.
 
-3. Instale as dependências:
-```bash
-pip install -r requirements.txt
-```
+- TotalCharges vs. tenure: Forte correlação positiva, o que é esperado,
+  já que clientes mais antigos acumulam mais cobranças totais.
 
-4. Execute o notebook:
-```bash
-jupyter notebook
+**5. Conclusões e Recomendações Preliminares**
 
-```
+A análise exploratória dos dados da Telecom X revela que o churn de
+clientes é um fenômeno multifatorial, com destaque para o tipo de
+contrato, tempo de permanência (tenure), valor das cobranças mensais e a
+ausência de serviços chave como segurança online e suporte técnico.
 
----
+Com base nestes achados, algumas recomendações preliminares podem ser
+consideradas:
 
-## 👤 Autora
+- Estratégias de Fidelização para Novos Clientes: Desenvolver programas
+  de boas-vindas e acompanhamento intensificado nos primeiros meses de
+  contrato para reduzir o churn inicial.
 
-Projeto desenvolvido por **Maryllian Vieira** como parte do Challenge da Trilha de Especialização em Data Science do **Programa ONE: Oracle Next Education** em parceria com a **Alura**.
+- Incentivo a Contratos de Longo Prazo: Criar ofertas mais atrativas
+  para contratos de 1 ou 2 anos, destacando os benefícios de
+  estabilidade e possíveis descontos.
 
----
+- Revisão de Precificação e Pacotes: Analisar a estrutura de preços,
+  especialmente para os pacotes com MonthlyCharges mais elevadas,
+  garantindo que o valor percebido justifique o custo.
 
-## 📄 Licença
+- Promoção de Serviços de Valor Agregado: Destacar e incentivar a adesão
+  aos serviços de OnlineSecurity e TechSupport, possivelmente
+  incluindo-os em pacotes promocionais ou oferecendo demonstrações
+  gratuitas.
 
-Este projeto está licenciado sob a licença MIT.
+- Melhoria da Experiência com Pagamento Eletrônico: Investigar os
+  motivos da alta taxa de churn associada ao pagamento via Electronic
+  check e buscar alternativas mais convenientes ou seguras.
+
+- Atenção Segmentada: Desenvolver abordagens específicas para segmentos
+  com maior propensão ao churn, como clientes idosos.
+
+**6. Próximos Passos**
+
+Os insights gerados por esta AED servem como uma base sólida para as
+próximas etapas do projeto:
+
+- Engenharia de Atributos: Criação de novas variáveis a partir das
+  existentes para melhorar o desempenho dos modelos.
+
+- Modelagem Preditiva: Desenvolvimento de modelos de machine learning
+  para prever quais clientes têm maior probabilidade de cancelar o
+  serviço.
+
+- Validação e Implementação: Teste e implementação das estratégias de
+  retenção baseadas nos resultados do modelo.
+
+Este relatório visa fornecer uma compreensão clara dos principais
+fatores de churn e auxiliar na tomada de decisões estratégicas para a
+Telecom X.
