@@ -1,5 +1,5 @@
 
-        "## 1. Introdução\n",
+        ## 1. Introdução
         "Este relatório apresenta as principais conclusões obtidas a partir da Análise Exploratória de Dados (AED) realizada sobre o conjunto de dados de clientes da Telecom X. O objetivo principal foi identificar os fatores que mais influenciam a decisão dos clientes em cancelar seus serviços (churn), fornecendo insights valiosos para a empresa direcionar suas estratégias de retenção.\n",
         "\n",
         "## 2. Visão Geral do Churn\n",
